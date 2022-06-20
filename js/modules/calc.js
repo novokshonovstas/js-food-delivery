@@ -120,4 +120,4 @@ initLocalSettings('.calculating__choose_big div', 'calculating__choose-item_acti
 }
 
 
-module.exports = calc;
+export default calc;

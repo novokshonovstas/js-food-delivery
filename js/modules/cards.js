@@ -1,3 +1,5 @@
+import {getResource} from '../services/services'
+
 function cards () {
 
     class MenuCard {
@@ -45,17 +47,7 @@ function cards () {
         }
       }
       
-      // получаем карточки товара из базы данных и отрисовуем на странице
-      const getResource = async (url) => {
-        const res = await fetch(url);
-          
-        if(!res.ok) {
-          throw new Error(`Fetching ${url} failed, status ${res.status}`);
-        }
-      
-        return await res.json();
-      }
-      
+  
       getResource('http://localhost:3000/menu')
         .then(data => {
           data.forEach(({img, altimg, title, descr, price}) => {
@@ -64,4 +56,4 @@ function cards () {
         })
 }
 
-module.exports = cards;
+export default cards;

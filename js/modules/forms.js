@@ -1,4 +1,7 @@
-function forms () {
+import {openModal, closeModal} from './modal';
+import {postData} from '../services/services'
+
+function forms (modalTimerId) {
 
 // две формы на странице
 const formWithModal = document.querySelector('[data-form]');
@@ -12,18 +15,7 @@ const message = {
 }
 
 
-  // функция POST запроса на сервер и записи данных из формы в базу данных
-  const postData =  async (url, data) => {
-      const res = await fetch(url, {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json'
-      },
-      body: data
-      })
 
-      return await res.json();
-  }
 
 
 // функция отправки формы, показа спиннера во время отправки, считывание данных с формы и вызов функции postData для записи в базу данных
@@ -66,36 +58,13 @@ function bindPostData (form) {
   bindPostData(formWithModal);
   bindPostData(formAction);
 
-// // функция динамического создания модального окна с надписью о результате заполнения формы пользователем
-// function showThanksModal(message) {
-//   const prevModalDialog = document.querySelector('.modal__dialog');
-
-//   prevModalDialog.classList.add('hide');
-//   openModal();
-
-//   const thanksModal = document.createElement('div');
-//   thanksModal.classList.add('modal__dialog');
-//   thanksModal.innerHTML = `
-//       <div class="modal__content">
-//           <div class="modal__close" data-close>×</div>
-//           <div class="modal__title">${message}</div>
-//       </div>
-//   `;
-//   document.querySelector('.modal').append(thanksModal);
-//   setTimeout(() => {
-//       thanksModal.remove();
-//       prevModalDialog.classList.add('show');
-//       prevModalDialog.classList.remove('hide');
-//       closeModal();
-//   }, 4000);
-// }
 
 
 function showThanksModal (message) {
   const prevModalDialog = document.querySelector('.modal__dialog');
 
   prevModalDialog.classList.add('hide');
-  openModal();
+  openModal('.modal', modalTimerId);
 
   const thanksModal = document.createElement('div');
   thanksModal.classList.add('modal__dialog')
@@ -112,9 +81,8 @@ function showThanksModal (message) {
 
   document.querySelector('.modal').append(thanksModal)
   setTimeout(() => {
-    modal.classList.add('hide')
     thanksModal.remove();
-    closeModal();
+    closeModal('.modal');
     
   }, 3500)
   setTimeout(() => {
@@ -124,4 +92,4 @@ function showThanksModal (message) {
 }
 }
 
-module.exports = forms;
+export default forms;

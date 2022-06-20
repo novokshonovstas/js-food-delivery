@@ -1,21 +1,18 @@
-function slider () {
-    const slides = document.querySelectorAll('.offer__slide');
-const slider = document.querySelector('.offer__slider')
-const prevArrow = document.querySelector('.offer__slider-prev');
-const nextArrow = document.querySelector('.offer__slider-next');
-const total = document.querySelector('#total');
-const current = document.querySelector('#current');
-const slidesWrapper = document.querySelector('.offer__slider-wrapper');
-const slidesField = document.querySelector('.offer__slider-inner');
+function slider ({container, slide, nextArrow, prevArrow, totalCounter, currentCounter, wrapper, field}) {
+    const slides = document.querySelectorAll(slide);
+    const slider = document.querySelector(container)
+    const prev = document.querySelector(prevArrow);
+    const next = document.querySelector(nextArrow);
+    const total = document.querySelector(totalCounter);
+    const current = document.querySelector(currentCounter);
+    const slidesWrapper = document.querySelector(wrapper);
+    const slidesField = document.querySelector(field);
 //ширина блока wrapper со слайдером
 const width = window.getComputedStyle(slidesWrapper).width;
 //индекс слайда
 let slideIndex = 1;
 // отступ слайда влево/вправо при периключении
 let offset = 0;
-
-// slider 1
-
 
 
 // проверка отоброжения блока с текущим слайдом и всеми доступными слайдами
@@ -96,7 +93,7 @@ slidesField.style.transition = `0.5s all`;
 slidesWrapper.style.overflow = 'hidden';
 
 //обработчик события при клике на стрелочку вперед при котором слайд будет сдвигаться по значениею переменной offset
-nextArrow.addEventListener('click', () => {
+next.addEventListener('click', () => {
   // проверка для того если мы дошли до последнего слайда - перейти на первый
   // если наш отступ равен ширине одного слайда width умноженого на количество всех слайдов - 1;
   //width parse Int - превращаем width из '500px' в 500 (число).
@@ -134,7 +131,7 @@ function dotsInitialStyle (arrLi) {
 
 
 
-prevArrow.addEventListener('click', () => {
+prev.addEventListener('click', () => {
   // проверка для того если мы дошли до первого слайда слайда - перейти на последний
   // если наш отступ равен ширине одного слайда width умноженого на количество всех слайдов - 1;
   //width.slice - превращаем width из '500px' в 500 (число).
@@ -220,4 +217,4 @@ dots.forEach(dot => {
 });
 }
 
-module.exports = slider;
+export default slider;
