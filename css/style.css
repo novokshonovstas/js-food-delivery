@@ -20,7 +20,7 @@ a {
   font-weight: 700;
   border: none;
   color: #fff;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(204, 207, 6, 0.2);
   cursor: pointer;
   transition: 0.3s all;
   outline: 0;
@@ -612,7 +612,12 @@ a {
   background-color: transparent;
   cursor: pointer;
 }
+
+
 .modal__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   font-size: 22px;
   text-transform: uppercase;
@@ -694,12 +699,18 @@ a {
   display: none;
 }
 
-.red {
-  background-color: rgb(244, 6, 6, 0.9);
+.blue {
+  background-color: rgb(23 37 167 / 85%);
 }
 
+
+.callback {
+  width: 66px;
+  height: 66px;
+}
 .cart__block {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+

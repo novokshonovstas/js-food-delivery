@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/zarBatyshka/project#readme",
   "devDependencies": {
-    "json-server": "^0.17.0"
+    "json-server": "^0.17.0",
+    "webpack-cli": "^4.10.0"
   }
 }
