@@ -433,10 +433,14 @@ a {
   font-size: 16px;
   font-weight: 300;
 }
-.menu__item img {
+#img {
   width: 100%;
   height: 200px;
   object-fit: cover;
+}
+
+.menu__item-total {
+  margin-left: 10px;
 }
 .menu__item-subtitle {
   font-weight: 700;
@@ -445,6 +449,7 @@ a {
   margin-top: 20px;
 }
 .menu__item-descr {
+  min-height: 133px;
   margin-top: 20px;
   padding: 0 20px;
 }
@@ -453,6 +458,16 @@ a {
   height: 1px;
   background-color: rgba(0, 0, 0, 0.25);
   margin-top: 40px;
+}
+.menu__item-common {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu__item-cart {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
 .menu__item-price {
   display: flex;

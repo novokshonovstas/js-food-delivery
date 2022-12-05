@@ -8,11 +8,11 @@ import forms from "./modules/forms";
 import {openModal} from "./modules/modal"
 
 window.addEventListener("DOMContentLoaded", () => {
-    const modalTimerId = setTimeout(() => openModal('.modal', modalTimerId), 20000);
+    const modalTimerId = setTimeout(() => openModal('.modal', modalTimerId), 200000000);
 
   tabs(".tabheader__item", ".tabheader__items", ".tabcontent", "tabheader__item_active");
   modal('[data-modal]', '.modal', modalTimerId);
-  timer('.timer', '2022-06-27');
+  timer('.timer', '2022-12-31');
   calc();
   cards();
   forms();
